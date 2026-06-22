@@ -1,0 +1,3 @@
+timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitter_ms,packet_loss_pct,download_latency_loaded_ms,upload_latency_loaded_ms,interface,server,result_url
+2026-06-21 21:22:07 EDT,2026-06-22T01:22:30Z,OK,418.5,72.1,28.0,2.6,0,403.5,295.2,en0,1767,https://www.speedtest.net/result/c/05ae0cc1-c06b-4ecd-9d6c-bccb33deefb4
+2026-06-21 21:24:38 EDT,2026-06-22T01:25:03Z,OK,511.8,70.3,28.7,0.7,0,375.0,206.3,en0,1767,https://www.speedtest.net/result/c/614aaa65-cef0-459f-b539-e73d904e8ada

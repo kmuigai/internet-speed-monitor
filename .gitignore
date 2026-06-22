@@ -1,0 +1,2 @@
+# Raw logs contain your IP and Mac address — keep them local, never publish.
+logs/
