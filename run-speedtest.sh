@@ -60,3 +60,9 @@ print(",".join(row))
 
 # Refresh the visual dashboard after each test
 python3 "$DIR/generate-dashboard.py" >/dev/null 2>&1
+
+# Publish updated dashboard to GitHub Pages (non-fatal if offline)
+cd "$DIR" && git add -A >/dev/null 2>&1 && \
+  git commit -q -m "data $(date '+%Y-%m-%d %H:%M')" >/dev/null 2>&1 && \
+  git push -q origin main >/dev/null 2>&1
+true
