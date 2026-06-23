@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# run-speedtest.sh — runs one Ookla speed test against Comcast's own NJ server
+# run-speedtest.sh — runs one Ookla speed test against Verizon's own NY server
 # and appends a single row to speedlog.csv. Failures are logged too (as dropouts),
 # because a failed test is itself evidence of bad service.
 #
-# Configured for Kayu's 1 Gbps Xfinity plan.
+# Configured for Kayu's Verizon Fios 300/300 plan.
 
 set -uo pipefail
 
@@ -12,7 +12,7 @@ set -uo pipefail
 DIR="$HOME/internet-speed-monitor"
 CSV="$DIR/speedlog.csv"
 RAWLOG="$DIR/logs/raw.jsonl"        # full JSON of every run, for deep dives
-SERVER_ID=1767                       # Comcast — Plainfield, NJ (your own ISP)
+SERVER_ID=30411                      # Verizon — New York, NY (your own ISP)
 SPEEDTEST="/opt/homebrew/bin/speedtest"
 
 # --- CSV header (created once) -------------------------------------------

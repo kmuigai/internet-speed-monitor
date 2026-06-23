@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-report.py — summarize speedlog.csv into an Xfinity-ready report.
+report.py — summarize speedlog.csv into an ISP performance report.
 
 Usage:
     python3 report.py            # full history
     python3 report.py --days 14  # last 14 days only
 
-Plan under test: Xfinity 1 Gbps (1000 Mbps advertised download).
+Plan under test: Verizon Fios 300/300 (300 Mbps symmetric).
 """
 import csv, sys, statistics
 from datetime import datetime, timedelta
 from collections import defaultdict
 
-PLAN_MBPS = 1000
+PLAN_MBPS = 300
 DIR = "/Users/kayu/internet-speed-monitor"
 CSV_PATH = f"{DIR}/speedlog.csv"
 
@@ -60,33 +60,35 @@ span_end = max((parse_local(r) for r in rows if parse_local(r)), default=None)
 
 def pct(n, d): return (100.0 * n / d) if d else 0.0
 
+t90, t50, t25 = 0.9*PLAN_MBPS, 0.5*PLAN_MBPS, 0.25*PLAN_MBPS
 print("=" * 64)
-print("  XFINITY 1 Gbps PLAN — INTERNET PERFORMANCE REPORT")
+print("  VERIZON FIOS 300/300 — INTERNET PERFORMANCE REPORT")
 print("=" * 64)
 if span_start and span_end:
     print(f"  Period: {span_start:%Y-%m-%d %H:%M} -> {span_end:%Y-%m-%d %H:%M}")
 print(f"  Tests run: {total}   (completed: {len(ok)}, FAILED/dropouts: {len(failed)})")
-print(f"  Tested against Comcast's own server (Plainfield, NJ, ID 1767)")
+print(f"  Tested against Verizon's own server (New York, NY, ID 30411)")
 print()
 
-print("-- DOWNLOAD (advertised: 1000 Mbps) " + "-" * 28)
+print(f"-- DOWNLOAD (advertised: {PLAN_MBPS:.0f} Mbps) " + "-" * 28)
 if dls:
     print(f"  Average:   {statistics.mean(dls):7.1f} Mbps   ({pct(statistics.mean(dls), PLAN_MBPS):.0f}% of plan)")
     print(f"  Median:    {statistics.median(dls):7.1f} Mbps")
     print(f"  Worst:     {min(dls):7.1f} Mbps")
     print(f"  Best:      {max(dls):7.1f} Mbps")
-    print(f"  Tests below 900 Mbps (90% of plan): {sum(1 for x in dls if x<900):3d} of {len(dls)}  ({pct(sum(1 for x in dls if x<900),len(dls)):.0f}%)")
-    print(f"  Tests below 500 Mbps (50% of plan): {sum(1 for x in dls if x<500):3d} of {len(dls)}  ({pct(sum(1 for x in dls if x<500),len(dls)):.0f}%)")
-    print(f"  Tests below 250 Mbps (25% of plan): {sum(1 for x in dls if x<250):3d} of {len(dls)}  ({pct(sum(1 for x in dls if x<250),len(dls)):.0f}%)")
+    print(f"  Tests below {t90:.0f} Mbps (90% of plan): {sum(1 for x in dls if x<t90):3d} of {len(dls)}  ({pct(sum(1 for x in dls if x<t90),len(dls)):.0f}%)")
+    print(f"  Tests below {t50:.0f} Mbps (50% of plan): {sum(1 for x in dls if x<t50):3d} of {len(dls)}  ({pct(sum(1 for x in dls if x<t50),len(dls)):.0f}%)")
+    print(f"  Tests below {t25:.0f} Mbps (25% of plan): {sum(1 for x in dls if x<t25):3d} of {len(dls)}  ({pct(sum(1 for x in dls if x<t25),len(dls)):.0f}%)")
 print()
 
-print("-- UPLOAD " + "-" * 53)
+print(f"-- UPLOAD (advertised: {PLAN_MBPS:.0f} Mbps — Fios is symmetric) " + "-" * 12)
 if uls:
-    print(f"  Average:   {statistics.mean(uls):7.1f} Mbps")
+    print(f"  Average:   {statistics.mean(uls):7.1f} Mbps   ({pct(statistics.mean(uls), PLAN_MBPS):.0f}% of plan)")
     print(f"  Worst:     {min(uls):7.1f} Mbps")
+    print(f"  Tests below {t90:.0f} Mbps (90% of plan): {sum(1 for x in uls if x<t90):3d} of {len(uls)}  ({pct(sum(1 for x in uls if x<t90),len(uls)):.0f}%)")
 print()
 
-print("-- RELIABILITY (Xfinity can't blame these on Wi-Fi) " + "-" * 12)
+print("-- RELIABILITY (your ISP can't blame these on Wi-Fi) " + "-" * 11)
 print(f"  Failed tests / dropouts:  {len(failed)} of {total}  ({pct(len(failed),total):.0f}%)")
 if losses:
     bad_loss = [x for x in losses if x > 0]

@@ -4,13 +4,13 @@ generate-dashboard.py — turn speedlog.csv into a self-contained, offline,
 auto-refreshing dashboard.html. No external dependencies, no internet needed
 to render (charts are inline SVG). Regenerated after every speed test.
 
-Plan under test: Xfinity 1 Gbps (1000 Mbps advertised download).
+Plan under test: Verizon Fios 300/300 (300 Mbps symmetric).
 """
 import csv, statistics
 from datetime import datetime, timedelta
 from collections import defaultdict
 
-PLAN = 1000
+PLAN = 300
 DIR = "/Users/kayu/internet-speed-monitor"
 CSV_PATH = f"{DIR}/speedlog.csv"
 OUT = f"{DIR}/dashboard.html"
@@ -47,12 +47,16 @@ def color_for(ratio):  # ratio = value/plan, higher is better
     if ratio >= 0.5: return "#d97706"
     return "#dc2626"
 
+t90 = 0.9 * PLAN
 avg_dl = statistics.mean(dls) if dls else 0
 worst_dl = min(dls) if dls else 0
 latest_dl = dls[-1] if dls else 0
-below900 = sum(1 for x in dls if x < 900)
+avg_ul = statistics.mean(uls) if uls else 0
+latest_ul = uls[-1] if uls else 0
+below90 = sum(1 for x in dls if x < t90)
 worst_loaded = max(loaded) if loaded else 0
 avg_loaded = statistics.mean(loaded) if loaded else 0
+avg_idle = statistics.mean(idle) if idle else 0
 
 # ---------- SVG helpers ----------
 def esc(s): return str(s).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
@@ -118,9 +122,9 @@ def bar_chart(pairs, ymax, height=260):
 # ---------- build charts ----------
 if dls:
     dl_chart = line_chart(
-        [("Download", "#2563eb", dls)],
+        [("Download", "#2563eb", dls), ("Upload", "#0d9488", uls)],
         ymax=PLAN,
-        refs=[(PLAN, "1000 — your paid speed", "#94a3b8"), (900, "900 (90%)", "#cbd5e1")],
+        refs=[(PLAN, f"{PLAN:.0f} — your paid speed", "#94a3b8"), (t90, f"{t90:.0f} (90%)", "#cbd5e1")],
     )
 else:
     dl_chart = '<div class="empty">No completed tests yet.</div>'
@@ -161,11 +165,11 @@ def card(value, label, color="#0f172a", sub=""):
     return f'<div class="card"><div class="cv" style="color:{color}">{value}</div><div class="cl">{label}</div>{f"<div class=cs>{sub}</div>" if sub else ""}</div>'
 
 cards = "".join([
-    card(f"{avg_dl:.0f}", "Avg download (Mbps)", verdict_color, f"of 1000 paid"),
-    card(f"{worst_dl:.0f}", "Worst download (Mbps)", color_for(worst_dl/PLAN)),
-    card(f"{pct(below900, len(dls)):.0f}%", "Tests below 900 Mbps", color_for(1-pct(below900,len(dls))/100) if dls else "#0f172a", f"{below900} of {len(dls)}"),
+    card(f"{avg_dl:.0f}", "Avg download (Mbps)", verdict_color, f"of {PLAN:.0f} paid"),
+    card(f"{avg_ul:.0f}", "Avg upload (Mbps)", color_for(avg_ul/PLAN) if uls else "#0f172a", f"of {PLAN:.0f} paid"),
+    card(f"{pct(below90, len(dls)):.0f}%", f"Tests below {t90:.0f} Mbps", color_for(1-pct(below90,len(dls))/100) if dls else "#0f172a", f"{below90} of {len(dls)}"),
     card(f"{len(failed)}", "Dropouts (failed tests)", "#dc2626" if failed else "#16a34a"),
-    card(f"{worst_loaded:.0f}", "Worst lag under load (ms)", color_for(1 - min(worst_loaded,500)/500) if loaded else "#0f172a", "idle was ~28ms"),
+    card(f"{worst_loaded:.0f}", "Worst lag under load (ms)", color_for(1 - min(worst_loaded,500)/500) if loaded else "#0f172a", f"idle ~{avg_idle:.0f}ms"),
 ])
 
 html = f"""<!doctype html>
@@ -173,7 +177,7 @@ html = f"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="60">
-<title>Internet Health — Xfinity 1 Gbps</title>
+<title>Internet Health — Verizon Fios 300</title>
 <style>
   :root {{ font-family: -apple-system, "SF Pro Text", Segoe UI, Roboto, sans-serif; }}
   * {{ box-sizing: border-box; }}
@@ -199,27 +203,29 @@ html = f"""<!doctype html>
   .legend {{ display:flex; gap:18px; font-size:12px; color:#475569; margin:2px 0 6px 56px; }}
   .legend span::before {{ content:""; display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:middle; }}
   .lg-load::before {{ background:#dc2626; }} .lg-idle::before {{ background:#16a34a; }}
+  .lg-dl::before {{ background:#2563eb; }} .lg-ul::before {{ background:#0d9488; }}
   .empty {{ color:#94a3b8; font-size:13px; padding:30px 0; text-align:center; }}
   footer {{ color:#94a3b8; font-size:11.5px; line-height:1.6; margin-top:8px; }}
   @media (max-width:760px) {{ .cards {{ grid-template-columns:repeat(2,1fr); }} }}
 </style></head>
 <body><div class="wrap">
-  <h1>Internet Health — Xfinity 1&nbsp;Gbps plan</h1>
-  <div class="sub">Tested every 30&nbsp;min against Comcast's own server (Plainfield, NJ) · {span} · {len(rows)} tests · updated {gen_time}</div>
+  <h1>Internet Health — Verizon Fios 300/300 plan</h1>
+  <div class="sub">Tested every 30&nbsp;min against Verizon's own server (New York, NY) · {span} · {len(rows)} tests · updated {gen_time}</div>
 
   <div class="verdict"><span class="dot"></span><div><b>{verdict}</b><br>
-    <span style="font-size:13px;color:#64748b">Latest test: {latest_dl:.0f}&nbsp;Mbps down · worst lag under load: {worst_loaded:.0f}&nbsp;ms (idle ~28&nbsp;ms)</span></div></div>
+    <span style="font-size:13px;color:#64748b">Latest test: {latest_dl:.0f}&nbsp;↓ / {latest_ul:.0f}&nbsp;↑ Mbps · worst lag under load: {worst_loaded:.0f}&nbsp;ms (idle ~{avg_idle:.0f}&nbsp;ms)</span></div></div>
 
   <div class="cards">{cards}</div>
 
   <div class="panel">
-    <h2>Download speed over time</h2>
-    <p>Each dot is a test. The dashed line is the 1000&nbsp;Mbps you pay for — the gap is what you're not getting.</p>
+    <h2>Download &amp; upload over time</h2>
+    <p>Each dot is a test. Fios is symmetric, so you pay for {PLAN:.0f}&nbsp;Mbps both ways (dashed line) — the gap is what you're not getting.</p>
+    <div class="legend"><span class="lg-dl">Download</span><span class="lg-ul">Upload</span></div>
     {dl_chart}
   </div>
 
   <div class="panel">
-    <h2>Lag under load — the evidence Xfinity can't blame on your Wi-Fi</h2>
+    <h2>Lag under load — the evidence your ISP can't blame on your Wi-Fi</h2>
     <p>How much your connection lags <i>while in use</i> (red) vs. when idle (green). Big red spikes = stutter on calls, video, gaming.</p>
     <div class="legend"><span class="lg-load">Lag under load</span><span class="lg-idle">Idle ping</span></div>
     {lat_chart}
