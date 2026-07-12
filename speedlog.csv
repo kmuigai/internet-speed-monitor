@@ -320,3 +320,4 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-07-11 22:27:19 EDT,2026-07-12T02:27:42Z,OK,301.8,242.2,19.7,0.9,0,204.8,380.9,en0,30411,https://www.speedtest.net/result/c/a78cbe35-30ec-44b9-9b13-193c14556092
 2026-07-11 22:57:43 EDT,2026-07-12T02:58:10Z,OK,217.4,216.7,20.6,4.3,0,250.4,392.5,en0,30411,https://www.speedtest.net/result/c/68af85ac-c079-4dea-9fc5-90a1087490ea
 2026-07-11 23:28:12 EDT,2026-07-12T03:28:32Z,OK,296.2,191.8,19.7,1.5,0,194.3,409.0,en0,30411,https://www.speedtest.net/result/c/11bd6469-528e-48c6-b00e-7c8b960be530
+2026-07-11 23:58:34 EDT,2026-07-12T03:58:53Z,OK,305.0,259.6,19.8,1.6,0,50.3,29.2,en0,30411,https://www.speedtest.net/result/c/53af2fd5-844e-4844-ae4b-333d28ea630a
