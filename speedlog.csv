@@ -392,3 +392,4 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-07-13 17:35:48 EDT,,FAILED,,,,,,,,,30411,
 2026-07-13 18:05:48 EDT,,FAILED,,,,,,,,,30411,
 2026-07-13 18:38:55 EDT,2026-07-13T22:39:21Z,OK,182.5,172.6,10.0,1.5,0,20.9,162.5,en0,30411,https://www.speedtest.net/result/c/1032b9d9-24f1-42ac-9f96-7e1a3ce30df5
+2026-07-13 19:09:22 EDT,2026-07-13T23:09:50Z,OK,217.9,171.9,9.7,1.5,0,28.3,153.7,en0,30411,https://www.speedtest.net/result/c/0c802ce5-9cad-4b9c-b061-015541d8e92a
