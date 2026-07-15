@@ -401,3 +401,7 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-07-13 22:11:28 EDT,2026-07-14T02:11:47Z,OK,259.2,208.4,19.8,1.2,0,26.4,431.1,en0,30411,https://www.speedtest.net/result/c/1b4bda1b-41d7-4217-8192-5ddca2d16569
 2026-07-13 22:41:48 EDT,2026-07-14T02:42:05Z,OK,263.1,189.7,10.0,0.3,0,25.6,39.9,en0,30411,https://www.speedtest.net/result/c/130bac4c-c159-4def-b7bc-c059f21bccce
 2026-07-14 05:37:51 EDT,2026-07-14T09:38:19Z,OK,187.7,150.6,9.7,1.2,0,116.0,394.7,en0,30411,https://www.speedtest.net/result/c/c1788006-2e9e-46bd-aec1-5a2bacac4009
+2026-07-14 07:02:46 EDT,,FAILED,,,,,,,,,30411,
+2026-07-14 12:43:30 EDT,,FAILED,,,,,,,,,30411,
+2026-07-14 18:17:42 EDT,,FAILED,,,,,,,,,30411,
+2026-07-14 21:36:48 EDT,2026-07-15T01:37:13Z,OK,251.0,234.5,19.8,0.9,0,27.2,47.4,en0,30411,https://www.speedtest.net/result/c/da89f1b1-6e62-424c-8133-908ff5495879
