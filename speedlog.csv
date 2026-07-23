@@ -567,3 +567,11 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-07-23 06:00:16 EDT,2026-07-23T10:00:38Z,OK,305.3,274.8,9.3,1.8,0,39.6,481.7,en0,30411,https://www.speedtest.net/result/c/de1f36da-ad91-462c-9ede-f7b47f34ec81
 2026-07-23 06:30:40 EDT,2026-07-23T10:30:54Z,OK,276.3,133.7,13.5,6.9,0,25.8,179.4,en0,30411,https://www.speedtest.net/result/c/f020bd3e-03c0-411e-bf28-2c0c151382b4
 2026-07-23 07:00:56 EDT,2026-07-23T11:01:11Z,OK,276.0,121.9,9.9,1.3,0,37.3,48.5,en0,30411,https://www.speedtest.net/result/c/a0c1dd03-9e24-4100-8841-ea7bb71c9257
+2026-07-23 11:00:46 EDT,,FAILED,,,,,,,,,30411,
+2026-07-23 13:01:35 EDT,,FAILED,,,,,,,,,30411,
+2026-07-23 14:10:17 EDT,,FAILED,,,,,,,,,30411,
+2026-07-23 14:43:37 EDT,,FAILED,,,,,,,,,30411,
+2026-07-23 15:13:37 EDT,,FAILED,,,,,,,,,30411,
+2026-07-23 15:43:38 EDT,,FAILED,,,,,,,,,30411,
+2026-07-23 16:29:17 EDT,,FAILED,,,,,,,,,30411,
+2026-07-23 19:48:59 EDT,2026-07-23T23:49:33Z,OK,152.0,39.7,15.7,2.9,0,144.5,220.3,en0,30411,https://www.speedtest.net/result/c/b926fb31-4278-4481-9cfe-527f910a21ad
