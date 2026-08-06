@@ -809,3 +809,4 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-08-05 20:39:19 EDT,2026-08-06T00:39:41Z,OK,216.2,188.9,9.3,1.0,0,73.3,386.0,en0,30411,https://www.speedtest.net/result/c/8a826869-1d22-43f9-bba1-2534ecdfd3e2
 2026-08-06 03:42:27 EDT,2026-08-06T07:57:35Z,OK,202.0,153.7,10.7,4.3,0,20.3,456.8,en0,30411,https://www.speedtest.net/result/c/61160b47-f276-4636-956a-d0cff7b84b3d
 2026-08-06 06:47:20 EDT,2026-08-06T10:47:37Z,OK,242.6,181.5,19.5,1.2,0,26.0,168.8,en0,30411,https://www.speedtest.net/result/c/2af3dfcf-59cb-488b-90b0-660212dd8b2e
+2026-08-06 07:17:39 EDT,2026-08-06T11:17:56Z,OK,292.7,184.3,19.6,1.2,0,127.2,473.6,en0,30411,https://www.speedtest.net/result/c/1dd47227-84d9-4805-8dfd-7620e7ea6d60
