@@ -945,3 +945,4 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-08-13 21:19:10 EDT,2026-08-14T01:19:30Z,OK,238.1,131.1,9.7,0.5,0,25.3,427.5,en0,30411,https://www.speedtest.net/result/c/7c1dc1fc-18dc-4747-b371-f77b62a10f7e
 2026-08-13 21:49:32 EDT,2026-08-14T01:49:58Z,OK,195.9,142.3,10.0,1.7,0,25.8,387.6,en0,30411,https://www.speedtest.net/result/c/9976b3d0-43aa-4521-8b74-b5250adbada0
 2026-08-13 22:20:00 EDT,2026-08-14T02:20:21Z,OK,251.2,155.7,10.0,2.4,0,65.1,511.7,en0,30411,https://www.speedtest.net/result/c/2bbf26ed-ab4a-408c-9e97-20397615e052
+2026-08-13 22:50:22 EDT,2026-08-14T02:50:42Z,OK,225.6,154.7,9.8,2.1,0,27.2,196.0,en0,30411,https://www.speedtest.net/result/c/ec29d7cc-3559-4667-b474-8ce92d4626f5
