@@ -1796,3 +1796,4 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-09-18 10:16:00 EDT,2026-09-18T14:16:26Z,OK,181.7,94.4,16.0,7.9,0,266.7,592.3,en0,30411,https://www.speedtest.net/result/c/fbd0da26-b7a2-46f8-a8e0-b0238129be8d
 2026-09-18 10:46:28 EDT,2026-09-18T14:46:50Z,OK,223.6,99.3,19.7,0.8,0,48.3,186.4,en0,30411,https://www.speedtest.net/result/c/67bf2153-96eb-4c2c-b82d-e1ab475a7fe2
 2026-09-18 11:16:52 EDT,2026-09-18T15:17:10Z,OK,209.6,84.5,16.3,2.2,1.0869565217391304,50.4,553.2,en0,30411,https://www.speedtest.net/result/c/a5e8f3a0-92c0-45cd-a2a0-2b2462c3df9f
+2026-09-18 11:47:12 EDT,2026-09-18T15:47:29Z,OK,206.0,97.6,19.7,1.1,0,245.7,487.9,en0,30411,https://www.speedtest.net/result/c/f033a5d9-241f-47bf-89d2-2dc1fd10f343
