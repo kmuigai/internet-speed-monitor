@@ -1980,3 +1980,4 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-10-22 08:59:37 EDT,2026-10-22T12:59:55Z,OK,181.4,52.9,9.7,1.4,0,111.4,385.3,en0,30411,https://www.speedtest.net/result/c/7cd24059-4dc5-4551-9e0e-b635ef34e1de
 2026-10-22 10:35:28 EDT,2026-10-22T14:35:43Z,OK,113.9,28.2,13.3,3.8,0,117.5,537.3,en0,30411,https://www.speedtest.net/result/c/f9faaf6d-5ff4-49b4-abe6-993f7f82d1e2
 2026-10-22 11:16:22 EDT,2026-10-22T15:16:36Z,OK,126.6,47.4,19.8,46.1,0,103.9,220.5,en0,30411,https://www.speedtest.net/result/c/d28f2704-7522-4161-b747-16162d0ee60a
+2026-10-22 12:51:40 EDT,2026-10-22T16:52:45Z,OK,88.8,27.5,13.2,20.2,0,0,131.8,en0,30411,https://www.speedtest.net/result/c/2b69d459-e6d2-4015-b46f-24a9ddc8bcd6
