@@ -1991,3 +1991,4 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-10-23 10:23:59 EDT,2026-10-23T14:25:22Z,OK,137.4,8.1,19.1,39.1,0,265.5,923.5,en0,30411,https://www.speedtest.net/result/c/7bcb4a25-1bfb-4597-991f-48511cecd308
 2026-10-23 12:52:22 EDT,2026-10-23T16:52:45Z,OK,94.0,24.3,20.1,2.5,0,235.8,778.9,en0,30411,https://www.speedtest.net/result/c/e9474e51-c786-4781-9c28-747cbc46ced1
 2026-10-23 15:05:01 EDT,2026-10-23T19:05:25Z,OK,84.5,25.9,16.2,2.8,0,129.1,717.6,en0,30411,https://www.speedtest.net/result/c/c7af01ed-1600-419f-9ae8-cacc50b75951
+2026-10-23 19:37:00 EDT,2026-10-23T23:37:21Z,OK,115.5,45.9,20.8,3.3,0,117.1,1085.0,en0,30411,https://www.speedtest.net/result/c/88776bf2-2547-419f-964d-fd25fc35cc28
