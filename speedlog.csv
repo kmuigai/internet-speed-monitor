@@ -2045,3 +2045,4 @@ timestamp_local,timestamp_utc,status,download_mbps,upload_mbps,idle_ping_ms,jitt
 2026-10-25 22:50:38 EDT,2026-10-26T02:51:03Z,OK,198.8,102.2,19.2,5.0,0,74.8,660.1,en0,30411,https://www.speedtest.net/result/c/07a441be-ff58-4085-8e31-2e437b6c42e2
 2026-10-25 23:21:07 EDT,2026-10-26T03:21:34Z,OK,186.2,108.0,9.9,1.2,0,24.3,573.1,en0,30411,https://www.speedtest.net/result/c/0a4b42b7-142d-4acd-9f8a-aaa9911f4d94
 2026-10-26 00:04:47 EDT,2026-10-26T04:05:08Z,OK,185.4,81.8,16.1,7.0,0,111.5,581.8,en0,30411,https://www.speedtest.net/result/c/6589879e-287e-47c3-8cd6-432304643167
+2026-10-26 00:35:10 EDT,2026-10-26T04:35:37Z,OK,239.8,116.1,10.2,3.1,0,96.8,249.9,en0,30411,https://www.speedtest.net/result/c/579184db-a4f7-447d-b501-e06563706fb1
